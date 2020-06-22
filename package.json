@@ -6,7 +6,9 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "test": "ts-node test.ts",
+    "testTS": "ts-node test.ts",
+    "testJS": "node test.js",
+    "test": "npm run testJS && npm run testTS",
     "lint": "eslint src",
     "lintFix": "eslint src --fix"
   },
