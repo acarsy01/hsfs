@@ -1,6 +1,6 @@
 {
   "name": "hsfs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A fast and simple HTTP library",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

@@ -17,5 +17,4 @@ const { hsfs } = require("hsfs");
 })();
 ```
 
-> also can run in TypeScript!
-> don't forget to check the [wiki page](https://github.com/acarsy01/hsfs/wiki/Documentation-of-0.0.2)!
+> Don't forget to check the [wiki page](https://github.com/acarsy01/hsfs/wiki/Documentation-of-0.0.2)!
