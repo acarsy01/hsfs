@@ -5,7 +5,7 @@ A fast and simple HTTP library
 ## Example usage
 
 ```js
-const hsfs = require("hsfs");
+const hsfs = require("hsfs").default;
 
 (async() => {
   const { body } = await hsfs("https://yandex.com.tr", {
