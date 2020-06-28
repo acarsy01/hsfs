@@ -1,6 +1,5 @@
-src
-.eslintrc.json
-test.ts
-tsconfig.json
 node_modules
+test.js
+test.html
+webpack.config.js
 .gitignore
