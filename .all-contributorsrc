@@ -1,0 +1,28 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "acarsy01",
+      "name": "acarsy01",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/67241967?v=4",
+      "profile": "https://github.com/acarsy01",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "projectManagement",
+        "test"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "hsfs",
+  "projectOwner": "acarsy01",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
