@@ -61,7 +61,7 @@ class HSFSConstructor {
   setMethod(method) {
     if (typeof method == "undefined") {
       throw new TypeError("If \"setMethod\" function is used, \"method\" must be type.");
-    } else if (!(["GET", "POST", "PUT", "PATCH"]).includes(method)) {
+    } else if (!(["GET", "POST", "PUT", "PATCH"]).includes(method.toUpperCase())) {
       throw new TypeError("Request method is invalid.");
     }
 
