@@ -8,7 +8,7 @@ module.exports = function ({
   req.open(method, (new URL(url)));
 
   for (let i = 0; i < Object.keys(headers).length; i++) {
-    req.setRequestHeader(header, Object.values(headers)[i]);
+    req.setRequestHeader(Object.keys(headers)[i], Object.values(headers)[i]);
   }
 
   return new Promise((resolve) => {

@@ -1,5 +1,5 @@
 /**
- * @typedef {"GET"|"POST"|"PUT"|"PATCH"} HSFSMethods
+ * @typedef {"GET"|"POST"|"PUT"|"PATCH"|"DELETE"} HSFSMethods
  */
 
 /**
@@ -61,7 +61,7 @@ class HSFSConstructor {
   setMethod(method) {
     if (typeof method === "undefined") {
       throw new TypeError("If \"setMethod\" function is used, \"method\" must be type.");
-    } else if (!(["GET", "POST", "PUT", "PATCH"]).includes(method.toUpperCase())) {
+    } else if (!(["GET", "POST", "PUT", "PATCH", "DELETE"]).includes(method.toUpperCase())) {
       throw new TypeError("Request method is invalid.");
     }
 
@@ -121,7 +121,7 @@ class HSFSConstructor {
     }
 
     for (let i = 0; i < ([...args]).length; i++) {
-      if (isString == true) {
+      if (isString === true) {
         this.headers[([...args])[i]] = ([...args])[i + 1];
         i++;
       } else {

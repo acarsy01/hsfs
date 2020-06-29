@@ -37,7 +37,7 @@ npm i hsfs
 ```js
 (async () => {
   const hsfs = require("hsfs");
-  const HTTPAdapter = require("hsfs/HTTPAdapter");
+  const HTTPAdapter = require("hsfs/src/HTTPAdapter");
   const data = await hsfs("http://example.com").setAdapter(HTTPAdapter).finalize();
   console.log(data);
 })();
