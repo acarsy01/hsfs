@@ -10,7 +10,7 @@ module.exports = {
   "devtool": "source-map",
   "output": {
     "path": path.resolve(__dirname, "dist"),
-    "filename": ((process.argv.indexOf("-m") != -1) ? "[name].min.js" : "[name].js"),
+    "filename": ((process.argv.indexOf("-m") !== -1) ? "[name].min.js" : "[name].js"),
     "library": "[name]"
   },
   "module": {
@@ -21,11 +21,11 @@ module.exports = {
     }]
   },
   "optimization": {
-    "minimize": (process.argv.indexOf("-m") != -1),
+    "minimize": (process.argv.indexOf("-m") !== -1),
     "minimizer": [
       new TerserPlugin({
         "cache": true
       })
     ]
   }
-}
+};

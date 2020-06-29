@@ -7,12 +7,12 @@ module.exports = function ({
   let req = new XMLHttpRequest();
   req.open(method, (new URL(url)));
 
-  for (let header of Object.keys(headers)) {
-    req.setRequestHeader(header, headers[header]);
+  for (let i = 0; i < Object.keys(headers).length; i++) {
+    req.setRequestHeader(header, Object.values(headers)[i]);
   }
 
   return new Promise((resolve) => {
-    if (typeof data != "undefined") {
+    if (typeof data !== "undefined") {
       req.send(data);
     } else {
       req.send();
@@ -22,6 +22,6 @@ module.exports = function ({
       resolve({
         "body": req.response
       });
-    }
+    };
   });
 };

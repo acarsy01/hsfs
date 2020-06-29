@@ -15,26 +15,26 @@ module.exports = ({
 
   return new Promise((resolve) => {
     let req = httpModule.request(new URL(url), {
-      "headers": headers,
-      "method": method
+      headers,
+      method
     }, (res) => {
       let body = "";
 
       res.on("data", (chunk) => {
         body += chunk;
-      })
+      });
 
       res.on("end", () => {
         resolve({
           body
         });
-      })
+      });
     });
 
-    if (typeof data != "undefined") {
+    if (typeof data !== "undefined") {
       req.write(data);
     }
 
     req.end();
   });
-}
+};

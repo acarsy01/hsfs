@@ -37,7 +37,7 @@ class HSFSConstructor {
      * @description Data to send with HSFS request
      * @type {any}
      */
-    this.data = undefined;
+    this.data;
 
     /**
      * @description HSFS headers to send with HSFS request
@@ -59,7 +59,7 @@ class HSFSConstructor {
    * @returns {HSFSConstructor}
    */
   setMethod(method) {
-    if (typeof method == "undefined") {
+    if (typeof method === "undefined") {
       throw new TypeError("If \"setMethod\" function is used, \"method\" must be type.");
     } else if (!(["GET", "POST", "PUT", "PATCH"]).includes(method.toUpperCase())) {
       throw new TypeError("Request method is invalid.");
@@ -88,7 +88,7 @@ class HSFSConstructor {
    * @param {any} data
    * @returns {HSFSConstructor}
    */
-  setData(data = undefined) {
+  setData(data) {
     this.data = data;
 
     return this;
@@ -157,6 +157,6 @@ function hsfs(url) {
  * @description HSFS version
  * @type {String}
  */
-hsfs.version = ((typeof require != "undefined") ? require("../package.json").version : "browser");
+hsfs.version = ((typeof require !== "undefined") ? require("../package.json").version : "browser");
 
 module.exports = hsfs;
