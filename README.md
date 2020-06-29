@@ -1,5 +1,6 @@
 # HSFS
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/87239b10588242d78f1bf64b97f802bf)](https://app.codacy.com/manual/acarsy01/hsfs?utm_source=github.com&utm_medium=referral&utm_content=acarsy01/hsfs&utm_campaign=Badge_Grade_Dashboard)
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
