@@ -3,3 +3,5 @@ test.js
 test.html
 webpack.config.js
 .gitignore
+.vscode
+src

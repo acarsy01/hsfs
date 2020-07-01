@@ -1,6 +1,6 @@
 {
   "name": "hsfs",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A classified HTTP library for the browser and Node.",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",

@@ -1,9 +1,11 @@
+"use strict";
+
 /**
- * @typedef {"GET"|"POST"|"PUT"|"PATCH"|"DELETE"} HSFSMethods
+ * @typedef {"GET"|"POST"|"PUT"|"PATCH"|"DELETE"|"HEAD"} HSFSMethods
  */
 
 /**
- * @typedef {"Authorization"|"Content-Type"} HSFSHeaders
+ * @typedef {"Authorization"|"Content-Type"|"Content-Length"|"Accept"|"User-Agent"} HSFSHeaders
  */
 
 /**
@@ -35,7 +37,7 @@ class HSFSConstructor {
 
     /**
      * @description Data to send with HSFS request
-     * @type {any}
+     * @type {ArrayBuffer|Buffer|String}
      */
     this.data;
 
@@ -60,8 +62,8 @@ class HSFSConstructor {
    */
   setMethod(method) {
     if (typeof method === "undefined") {
-      throw new TypeError("If \"setMethod\" function is used, \"method\" must be type.");
-    } else if (!(["GET", "POST", "PUT", "PATCH", "DELETE"]).includes(method.toUpperCase())) {
+      throw new TypeError("If \"setMethod\" function is used, \"method\" must be String.");
+    } else if (!(["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]).includes(method.toUpperCase())) {
       throw new TypeError("Request method is invalid.");
     }
 
@@ -89,6 +91,10 @@ class HSFSConstructor {
    * @returns {HSFSConstructor}
    */
   setData(data) {
+    if (!(["POST", "PUT", "MATCH"]).includes(this.method)) {
+      throw new Error("\"setData\" available on \"PUT\" or \"PATCH\" or \"POST\" method.");
+    }
+
     this.data = data;
 
     return this;
@@ -138,9 +144,17 @@ class HSFSConstructor {
    * @returns {Promise<HSFSResponse>}
    */
   async finalize() {
+    for (let prop of (["method", "adapter"])) {
+      if (typeof this[prop] === "undefined") {
+        throw new TypeError(`${prop} prototype must be available.`);
+      }
+    }
+
     return await this.adapter(this);
   }
 }
+
+
 
 /**
  * @method hsfs
@@ -151,6 +165,7 @@ class HSFSConstructor {
 function hsfs(url) {
   return new HSFSConstructor(url);
 }
+
 
 
 /**
