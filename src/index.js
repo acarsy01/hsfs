@@ -179,7 +179,9 @@ class HSFSConstructor {
    * @returns {HSFSConstructor}
    */
   useFormData() {
-    if (Buffer.isBuffer(this.data) || (typeof this.data !== "object")) throw new TypeError("\"data\" property must be Object.");
+    if (Buffer.isBuffer(this.data) || (typeof this.data !== "object")) {
+      throw new TypeError("\"data\" property must be Object.");
+    }
 
     let form = new FormDataModule();
 

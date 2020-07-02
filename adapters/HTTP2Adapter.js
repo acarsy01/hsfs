@@ -4,8 +4,13 @@ module.exports = ({
   url,
   headers
 }) => {
-  if (Number(process.version.split(".")[0].slice(1)) <= 9) throw new Error("Node version must be higher than 9.x");
-  if (!url.startsWith("https")) throw new TypeError("You must use \"https\" protocol in HTTP2 adapter.")
+  if (Number(process.version.split(".")[0].slice(1)) <= 9) {
+    throw new Error("Node version must be higher than 9.x");
+  }
+
+  if (!url.startsWith("https")) {
+    throw new TypeError("You must use \"https\" protocol in HTTP2 adapter.");
+  }
 
   let http2 = require("http2");
   let clientSession = http2.connect(url.split("/").slice(0, 3).join("/"));

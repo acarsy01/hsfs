@@ -5,6 +5,7 @@
 
   const [, , ...args] = process.argv;
   const minimist = require("minimist");
+  const util = require("util");
   const _args = minimist(args);
   const hsfs = require("./index");
   const adapters = {
@@ -27,5 +28,5 @@
 
   request = await request.finalize();
 
-  console.log(request);
+  process.stdout.write(util.inspect(request, true, null, true));
 })();

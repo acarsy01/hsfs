@@ -4,7 +4,9 @@ module.exports = ({
   url,
   headers
 }) => {
-  if (Number(process.version.split(".")[0].slice(1)) <= 9) throw new Error("Node version must be higher than 9.x");
+  if (Number(process.version.split(".")[0].slice(1)) <= 9) {
+    throw new Error("Node version must be higher than 9.x");
+  }
 
   let _http = require("http");
   let httpModules = {

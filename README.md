@@ -4,67 +4,23 @@
 
 A classified HTTP library for the browser and Node.
 
-Don't forget to check [Wiki page](https://github.com/acarsy01/hsfs/wiki).
+## Example usage
 
-## Browser usage
+To use (or learn usage), you can visit [Guide page on Wiki](https://github.com/acarsy01/hsfs/wiki/Guide).
 
-```html
-<html>
-  <head>
-    <script src="https://unpkg.com/hsfs/dist/HSFS.js"></script>
-    <script src="https://unpkg.com/hsfs/dist/XMLHttpRequestAdapter.js"></script>
+## Notes
 
-    <script>
-      (async() => {
-        let hsfs = HSFS("https://cors-anywhere.herokuapp.com/http://example.com") // https://cors-anywhere.herokuapp.com/ for block CORS error in browser, you can remove this
-          .setAdapter(XMLHttpRequestAdapter);
-        console.log(await hsfs.finalize());
-      })();
-    </script>
-  </head>
-</html>
-```
-
-## Node usage
-
-Firstly, you must install dependency;
-
-```nothing
-npm i hsfs
-```
-
-```js
-(async () => {
-  const hsfs = require("hsfs");
-  const HTTPAdapter = require("hsfs/src/HTTPAdapter");
-  const data = await hsfs("http://example.com").setAdapter(HTTPAdapter).finalize();
-  console.log(data);
-})();
-```
-
-## CLI usage
-
-You must install dependency globally and you must install subdependency named "minimist" for CLI to render arguments.
-
-```nothing
-npm i -g hsfs minimist
-```
-
-```nothing
-hsfs --url=http://google.com --adapter=HTTPAdapter --method=POST --data=hi
-```
-
-> You must use Node's adapters in CLI. You can only send data including String.
+> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs) in GitHub. Don't forget to check [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub to look changelog.
 
 ## Adapters
 
 ### Node
 
-HTTPAdapter **|** HTTP2Adapter
+HTTPAdapter **\|** HTTP2Adapter
 
 ### Browser
 
-XMLHttpRequestAdapter **|** FetchAdapter
+XMLHttpRequestAdapter **\|** FetchAdapter
 
 ## Contributors
 
