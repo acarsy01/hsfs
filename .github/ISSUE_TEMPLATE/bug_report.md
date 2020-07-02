@@ -23,9 +23,9 @@ If you know where is bug, you can write line and file.
 
 **Desktop (please complete the following information):**
 
--   OS: [e.g. Debian Linux, Windows]
--   System [chrome, node, cli]
--   Version [e.g. 22]
+-   OS: e.g. Debian Linux, Windows
+-   System: e.g. chrome, node, cli
+-   Version e.g. 22
 
 **Additional context**
 Add any other context about the problem here.

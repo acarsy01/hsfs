@@ -19,7 +19,9 @@ module.exports = async function ({
     });
   }
 
-  return {
+  response = {
     "body": await response.text()
   };
+
+  return response;
 };

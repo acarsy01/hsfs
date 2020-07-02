@@ -6,7 +6,7 @@ A classified HTTP library for the browser and Node.
 
 ## Example usage
 
-To use (or learn usage), you can visit [Guide page on Wiki](https://github.com/acarsy01/hsfs/wiki/Guide).
+To use (or learn to use), you can visit [Guide page on Wiki](https://github.com/acarsy01/hsfs/wiki/Guide).
 
 ## Notes
 
