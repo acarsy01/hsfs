@@ -1,6 +1,8 @@
 (async () => {
   const hsfs = require("./");
-  const HTTPAdapter = require("./src/HTTPAdapter");
-  const data = await hsfs("http://example.com").setAdapter(HTTPAdapter).finalize();
-  // console.log(data);
+  const HTTP2Adapter = require("./adapters/HTTP2Adapter");
+  const data = hsfs("https://discord.com/api/users/@me").setAdapter(HTTP2Adapter);
+  console.log(data);
+  console.log(await data.finalize());
+  console.log(hsfs.version)
 })();

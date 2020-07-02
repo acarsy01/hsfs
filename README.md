@@ -16,7 +16,7 @@ Don't forget to check [Wiki page](https://github.com/acarsy01/hsfs/wiki).
 
     <script>
       (async() => {
-        let hsfs = HSFS("https://cors-anywhere.herokuapp.com/http://example.com") // https://cors-anywhere.herokuapp.com/ for block CORS error in browser
+        let hsfs = HSFS("https://cors-anywhere.herokuapp.com/http://example.com") // https://cors-anywhere.herokuapp.com/ for block CORS error in browser, you can remove this
           .setAdapter(XMLHttpRequestAdapter);
         console.log(await hsfs.finalize());
       })();
@@ -42,9 +42,32 @@ npm i hsfs
 })();
 ```
 
+## CLI usage
+
+You must install dependency globally and you must install subdependency named "minimist" for CLI to render arguments.
+
+```nothing
+npm i -g hsfs minimist
+```
+
+```nothing
+hsfs --url=http://google.com --adapter=HTTPAdapter --method=POST --data=hi
+```
+
+> You must use Node's adapters in CLI. You can only send data including String.
+
+## Adapters
+
+### Node
+
+HTTPAdapter **|** HTTP2Adapter
+
+### Browser
+
+XMLHttpRequestAdapter **|** FetchAdapter
+
 ## Contributors
 
-<!-- markdownlint-disable -->
 <table>
   <tr>
     <td align="center">
@@ -68,5 +91,4 @@ npm i hsfs
   </tr>
 </table>
 
-If you want to contribute, you can open a [issue](https://github.com/acarsy01/hsfs/issues/new).
-<!-- markdownlint-enable -->
+If you want to help, you can open a [issue](https://github.com/acarsy01/hsfs/issues/new).

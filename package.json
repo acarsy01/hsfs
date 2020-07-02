@@ -1,6 +1,6 @@
 {
   "name": "hsfs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A classified HTTP library for the browser and Node.",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -18,7 +18,9 @@
   "keywords": [
     "http",
     "hsfs",
-    "https"
+    "https",
+    "fetch",
+    "http2"
   ],
   "author": "acarsy01",
   "license": "MIT",
@@ -26,6 +28,9 @@
     "url": "https://github.com/acarsy01/hsfs/issues"
   },
   "homepage": "https://github.com/acarsy01/hsfs#readme",
+  "bin": {
+    "hsfs": "./src/bin.js"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "babel-loader": "^8.1.0",

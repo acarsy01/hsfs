@@ -5,7 +5,8 @@ module.exports = {
   "mode": "production",
   "entry": {
     "HSFS": "./src/index.js",
-    "XMLHttpRequestAdapter": "./src/XMLHttpRequestAdapter.js"
+    "XMLHttpRequestAdapter": "./adapters/XMLHttpRequestAdapter.js",
+    "FetchAdapter": "./adapters/FetchAdapter.js"
   },
   "devtool": "source-map",
   "output": {

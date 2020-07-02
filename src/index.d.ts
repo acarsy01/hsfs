@@ -16,10 +16,16 @@ class HSFS {
   "setAdapter": (adapter: any) => HSFS;
   "setData": (data: any) => HSFS;
   "addHeader": (headerName: HSFSHeaders, headerValue: any) => HSFS;
-  "addHeaders": (...args: (Record<HSFSHeaders, any>[] | String[])) => HSFS;
+  "addHeaders": (...args: (Record<HSFSHeaders, any> | String)[]) => HSFS;
+  "deleteHeader": (headerName: HSFSHeaders) => HSFS;
+  "deleteHeaders": (...args: (String|Array)[]) => HSFS;
+  "useFormData": () => HSFS;
   "finalize": () => Promise<HSFSResponse>;
 }
 
 declare function hsfs(url: string): HSFS;
 
+hsfs.version = "" as string;
+
 export = hsfs;
+export default hsfs;

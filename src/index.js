@@ -17,6 +17,9 @@
  * @class
  * @description HSFS constructor
  */
+
+const FormDataModule = ((typeof require !== "undefined") ? require("form-data") : FormData);
+
 class HSFSConstructor {
   /**
    * @constructor
@@ -139,6 +142,57 @@ class HSFSConstructor {
   }
 
   /**
+   * @method HSFSConstructor#deleteHeader
+   * @description Deletes a header
+   * @param {HSFSHeaders} headerName
+   * @returns {HSFSConstructor}
+   */
+  deleteHeader(headerName) {
+    delete this.headers[headerName];
+
+    return this;
+  }
+
+  /**
+   * @method HSFSConstructor#deleteHeaders
+   * @description Deletes headers
+   * @param {...(HSFSHeaders|Array)} headerName
+   * @returns {HSFSConstructor}
+   */
+  deleteHeaders(...args) {
+    for (let el of ([...args])) {
+      if (Array.isArray(el)) {
+        for (let header of el) {
+          delete this.headers[header];
+        }
+      } else if (typeof el === "string") {
+        delete this.headers[el];
+      }
+    }
+
+    return this;
+  }
+
+  /**
+   * @method HSFSConstructor#useFormData
+   * @description Use form data in data (requires "form-data" dependency in node, use it after setData)
+   * @returns {HSFSConstructor}
+   */
+  useFormData() {
+    if (Buffer.isBuffer(this.data) || (typeof this.data !== "object")) throw new TypeError("\"data\" property must be Object.");
+
+    let form = new FormDataModule();
+
+    for (let header of Object.keys(this.data)) {
+      form.append(header, this.data[header]);
+    }
+
+    this.data = form;
+
+    return this;
+  }
+
+  /**
    * @method HSFSConstructor#finalize
    * @description Finalizes HSFS request
    * @returns {Promise<HSFSResponse>}
@@ -150,7 +204,13 @@ class HSFSConstructor {
       }
     }
 
-    return await this.adapter(this);
+    let response = await this.adapter(this);
+
+    for (let key of Object.keys(this)) {
+      delete this[key];
+    }
+
+    return response;
   }
 }
 
@@ -166,12 +226,12 @@ function hsfs(url) {
   return new HSFSConstructor(url);
 }
 
-
-
 /**
  * @description HSFS version
  * @type {String}
  */
 hsfs.version = ((typeof require !== "undefined") ? require("../package.json").version : "browser");
+hsfs.default = hsfs;
 
+exports = hsfs;
 module.exports = hsfs;
