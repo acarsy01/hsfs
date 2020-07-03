@@ -1,6 +1,9 @@
 # HSFS
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
+[![Downloads](https://img.shields.io/npm/dt/hsfs?style=flat-square)](https://www.npmjs.com/hsfs)
+[![Latest release](https://img.shields.io/github/v/release/acarsy01/hsfs?label=latest%20release&style=flat-square)](https://github.com/acarsy01/hsfs/releases)
+![Stargazers](https://img.shields.io/github/stars/acarsy01/hsfs?style=flat-square)
 
 A classified HTTP library for the browser and Node.
 
@@ -10,7 +13,11 @@ To use (or learn to use), you can visit [Guide page on Wiki](https://github.com/
 
 ## Notes
 
-> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs) in GitHub. Don't forget to check [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub to look changelog.
+> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs) in GitHub
+
+<br />
+
+> Don't forget to check [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub to look changelog.
 
 ## Adapters
 

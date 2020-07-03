@@ -1,12 +1,12 @@
 <html>
   <head>
     <script src="dist/HSFS.js"></script>
-    <script src="dist/FetchAdapter.js"></script>
+    <script src="dist/XMLHttpRequestAdapter.js"></script>
 
     <script>
       (async() => {
         let hsfs = HSFS("https://cors-anywhere.herokuapp.com/http://example.com") // https://cors-anywhere.herokuapp.com/ for block CORS error
-          .setAdapter(FetchAdapter);
+          .setAdapter(XMLHttpRequestAdapter);
         console.log(await hsfs.finalize());
       })();
     </script>
