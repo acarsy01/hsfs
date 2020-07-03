@@ -15,7 +15,7 @@ module.exports = ({
   };
 
   let httpModule = httpModules[url.split("://")[0]];
-  let _data = data;
+  let _data = data; // fix duplication
   let _headers = headers;
 
   if (Buffer.isBuffer(data)) {
