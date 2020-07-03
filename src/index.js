@@ -111,7 +111,7 @@ class HSFSConstructor {
    * @returns {HSFSConstructor}
    */
   addHeader(headerName, headerValue) {
-    this.headers[headerName] = headerValue;
+    this.headers[`${headerName}`] = headerValue;
 
     return this;
   }
@@ -125,16 +125,16 @@ class HSFSConstructor {
   addHeaders(...args) {
     let isString = false;
 
-    if (typeof ([...args])[0] === "string") {
+    if (typeof args[0] === "string") {
       isString = true;
     }
 
     for (let i = 0; i < ([...args]).length; i++) {
       if (isString === true) {
-        this.headers[([...args])[i]] = ([...args])[i + 1];
+        this.headers[`${args[parseInt(i)]}`] = args[parseInt(i + 1)];
         i++;
       } else {
-        this.headers = Object.assign(this.headers, ([...args])[i]);
+        this.headers = Object.assign(this.headers, args[parseInt(i)]);
       }
     }
 
@@ -148,7 +148,7 @@ class HSFSConstructor {
    * @returns {HSFSConstructor}
    */
   deleteHeader(headerName) {
-    delete this.headers[headerName];
+    delete this.headers[`${headerName}`];
 
     return this;
   }
@@ -163,10 +163,10 @@ class HSFSConstructor {
     for (let el of ([...args])) {
       if (Array.isArray(el)) {
         for (let header of el) {
-          delete this.headers[header];
+          delete this.headers[`${header}`];
         }
       } else if (typeof el === "string") {
-        delete this.headers[el];
+        delete this.headers[`${el}`];
       }
     }
 
@@ -186,7 +186,7 @@ class HSFSConstructor {
     let form = new FormDataModule();
 
     for (let header of Object.keys(this.data)) {
-      form.append(header, this.data[header]);
+      form.append(header, this.data[`${header}`]);
     }
 
     this.data = form;
@@ -201,7 +201,7 @@ class HSFSConstructor {
    */
   async finalize() {
     for (let prop of (["method", "adapter"])) {
-      if (typeof this[prop] === "undefined") {
+      if (typeof this[`${prop}`] === "undefined") {
         throw new TypeError(`${prop} prototype must be available.`);
       }
     }
@@ -209,7 +209,7 @@ class HSFSConstructor {
     let response = await this.adapter(this);
 
     for (let key of Object.keys(this)) {
-      delete this[key];
+      delete this[`${key}`];
     }
 
     return response;
