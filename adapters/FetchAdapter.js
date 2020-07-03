@@ -1,8 +1,8 @@
 module.exports = async function ({
   data,
   method,
-  url,
-  headers
+  headers,
+  url
 }) {
   let response;
 

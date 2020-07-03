@@ -3,7 +3,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 [![Downloads](https://img.shields.io/npm/dt/hsfs?style=flat-square)](https://www.npmjs.com/hsfs)
 [![Latest release](https://img.shields.io/github/v/release/acarsy01/hsfs?label=latest%20release&style=flat-square)](https://github.com/acarsy01/hsfs/releases)
-![Stargazers](https://img.shields.io/github/stars/acarsy01/hsfs?style=flat-square)
+[![Stargazers](https://img.shields.io/github/stars/acarsy01/hsfs?style=flat-square)](https://github.com/acarsy01/hsfs/stargazers)
 
 A classified HTTP library for the browser and Node.
 

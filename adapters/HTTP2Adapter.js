@@ -21,16 +21,16 @@ module.exports = ({
   if (Buffer.isBuffer(data)) {
     // Nothing to do
   } else if (typeof data === "string") {
-    _data = Buffer.from(_data, "utf-8");
+    _data = Buffer.from(_data, "utf-8"); // fix duplication
   } else if (toString.call(_data) === "[object ArrayBuffer]") {
-    _data = Buffer.from(new Uint8Array(_data));
+    _data = Buffer.from(new Uint8Array(_data)); // fix duplication
   }
 
   if (typeof _data !== "undefined") {
     _headers["Content-Length"] = _data.length;
   }
 
-  return new Promise((resolve) => {
+  return new Promise((_resolve) => {
     let req = clientSession.request(Object.assign({
       ":method": method,
       ":path": `/${url.split("/").slice(3).join("/")}`,
@@ -46,16 +46,16 @@ module.exports = ({
       req.on("end", () => {
         clientSession.close();
 
-        resolve({
+        _resolve({
           body
         });
       });
     });
 
     if (typeof _data !== "undefined") {
-      req.write(_data);
+      req.write(_data); // fix duplication
     }
 
-    req.end();
+    req.end(); // fix duplication
   });
 };

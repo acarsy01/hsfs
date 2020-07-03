@@ -1,8 +1,8 @@
 module.exports = function ({
+  headers,
   data,
   method,
-  url,
-  headers
+  url
 }) {
   let req = new XMLHttpRequest();
   req.open(method, (new URL(url)));

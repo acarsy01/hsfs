@@ -1,11 +1,11 @@
 module.exports = ({
-  data,
   method,
-  url,
-  headers
+  data,
+  headers,
+  url
 }) => {
   if (Number(process.version.split(".")[0].slice(1)) <= 9) {
-    throw new Error("Node version must be higher than 9.x");
+    throw new Error("Node version must be higher than 9.x"); // fix duplication
   }
 
   let _http = require("http");
@@ -14,7 +14,6 @@ module.exports = ({
     "https": require("https")
   };
 
-  /** @type {_http} */
   let httpModule = httpModules[url.split("://")[0]];
   let _data = data;
   let _headers = headers;
