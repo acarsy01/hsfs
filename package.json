@@ -1,12 +1,11 @@
 {
   "name": "hsfs",
-  "version": "0.0.5",
-  "description": "A classified HTTP library for the browser and Node.",
+  "version": "0.0.6",
+  "description": "A classified HTTP library for the browser, Node and CLI.",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
     "test": "node test.js",
-    "docs": "jsdoc2md src/index.js",
     "build": "npm run build:unmin && npm run build:min",
     "build:unmin": "webpack --config webpack.config.js",
     "build:min": "webpack --config webpack.config.js -m"
@@ -34,7 +33,6 @@
   "devDependencies": {
     "@babel/core": "^7.10.3",
     "babel-loader": "^8.1.0",
-    "jsdoc-to-markdown": "^6.0.1",
     "path": "^0.12.7",
     "terser-webpack-plugin": "^3.0.6",
     "webpack": "^4.43.0",

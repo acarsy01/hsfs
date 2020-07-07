@@ -13,21 +13,7 @@ To use (or learn to use), you can visit [Guide page on Wiki](https://github.com/
 
 ## Notes
 
-> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs) in GitHub
-
-<br />
-
-> Don't forget to check [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub to look changelog.
-
-## Adapters
-
-### Node
-
-HTTPAdapter **\|** HTTP2Adapter
-
-### Browser
-
-XMLHttpRequestAdapter **\|** FetchAdapter
+> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs) and [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub.
 
 ## Contributors
 
