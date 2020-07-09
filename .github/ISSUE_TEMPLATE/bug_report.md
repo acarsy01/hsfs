@@ -25,7 +25,7 @@ If you know where is bug, you can write line and file.
 
 -   OS: e.g. Debian Linux, Windows
 -   System: e.g. chrome, node, cli
--   Version e.g. 22
+-   Version: e.g. 22
 
 **Additional context**
 Add any other context about the problem here.

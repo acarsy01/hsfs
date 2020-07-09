@@ -1,2 +1,3 @@
-export = "" as any;
-export default "" as any;
+declare const HTTP2Adapter: any;
+
+export = HTTP2Adapter;

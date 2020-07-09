@@ -156,7 +156,7 @@ class HSFSConstructor {
   /**
    * @method HSFSConstructor#deleteHeaders
    * @description Deletes headers
-   * @param {...(HSFSHeaders|Array)} headerName
+   * @param {...(HSFSHeaders|HSFSHeaders[])} headerName
    * @returns {HSFSConstructor}
    */
   deleteHeaders(...args) {

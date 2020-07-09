@@ -4,16 +4,17 @@
 [![Downloads](https://img.shields.io/npm/dt/hsfs?style=flat-square)](https://www.npmjs.com/hsfs)
 [![Latest release](https://img.shields.io/github/v/release/acarsy01/hsfs?label=latest%20release&style=flat-square)](https://github.com/acarsy01/hsfs/releases)
 [![Stargazers](https://img.shields.io/github/stars/acarsy01/hsfs?style=flat-square)](https://github.com/acarsy01/hsfs/stargazers)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7316812c7f5e411eba728b737220ffdd)](https://www.codacy.com/manual/acarsy01/hsfs?utm_source=github.com&utm_medium=referral&utm_content=acarsy01/hsfs&utm_campaign=Badge_Grade)
 
-A classified HTTP library for the browser and Node.
+A classified HTTP library for the browser, Node and CLI.
 
 ## Example usage
 
-To use (or learn to use), you can visit [Guide page on Wiki](https://github.com/acarsy01/hsfs/wiki/Guide).
+To learn to use, you can visit [Guide page on Wiki](https://github.com/acarsy01/hsfs/wiki/Guide).
 
 ## Notes
 
-> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs) and [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub.
+> Don't forget to check [Wiki](https://github.com/acarsy01/hsfs/wiki) and [Releases](https://github.com/acarsy01/hsfs/releases) page in GitHub.
 
 ## Contributors
 

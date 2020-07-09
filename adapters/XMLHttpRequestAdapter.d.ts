@@ -1,2 +1,3 @@
-export = "" as any;
-export default "" as any;
+declare const XMLHttpRequestAdapter: any;
+
+export = XMLHttpRequestAdapter;

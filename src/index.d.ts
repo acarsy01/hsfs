@@ -5,7 +5,7 @@ interface HSFSResponse {
   "body": string;
 }
 
-class HSFS {
+interface HSFS {
   constructor(url: string);
   "url": string;
   "method": string;
@@ -18,14 +18,15 @@ class HSFS {
   "addHeader": (headerName: HSFSHeaders, headerValue: any) => HSFS;
   "addHeaders": (...args: (Record<HSFSHeaders, any> | String)[]) => HSFS;
   "deleteHeader": (headerName: HSFSHeaders) => HSFS;
-  "deleteHeaders": (...args: (String|Array)[]) => HSFS;
+  "deleteHeaders": (...args: (HSFSHeaders | HSFSHeaders[])[]) => HSFS;
   "useFormData": () => HSFS;
   "finalize": () => Promise<HSFSResponse>;
 }
 
 declare function hsfs(url: string): HSFS;
 
-hsfs.version = "" as string;
+declare namespace hsfs {
+  export const version: string;
+}
 
 export = hsfs;
-export default hsfs;
