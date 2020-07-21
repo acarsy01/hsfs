@@ -5,7 +5,7 @@ module.exports = function ({
   url
 }) {
   let req = new XMLHttpRequest();
-  req.open(method, (new URL(url)));
+  req.open(`${method}`, (new URL(url)));
 
   for (let i = 0; i < Object.keys(headers).length; i++) {
     req.setRequestHeader(Object.keys(headers)[parseInt(i, 10)], Object.values(headers)[parseInt(i, 10)]);

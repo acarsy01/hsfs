@@ -5,8 +5,6 @@
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
-    "test:javascript": "node test.js",
-    "test:typescript": "ts-node test.ts",
     "test": "npm run test:javascript && npm run test:typescript",
     "build": "npm run build:unmin && npm run build:min",
     "build:unmin": "webpack --config webpack.config.js",
@@ -21,9 +19,12 @@
     "hsfs",
     "https",
     "fetch",
-    "http2"
+    "http2",
+    "xmlhttprequest"
   ],
-  "author": "acarsy01",
+  "author": {
+    "name": "acarsy01"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/acarsy01/hsfs/issues"

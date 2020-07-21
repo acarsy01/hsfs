@@ -1,7 +1,5 @@
-node_modules
-test.js
-test.html
-webpack.config.js
 .gitignore
 .vscode
 .github
+node_modules
+webpack.config.js
