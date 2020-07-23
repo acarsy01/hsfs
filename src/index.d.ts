@@ -1,32 +1,33 @@
-type HSFSMethods = "GET" | "POST" | "PUT" | "PATCH";
+type HSFSMethods = ("GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "HEAD");
 type HSFSHeaders = "Authorization" | "Content-Type";
 
 interface HSFSResponse {
   "body": string;
 }
 
-interface HSFS {
+interface HSFSRequest {
   constructor(url: string);
   "url": string;
   "method": string;
   "data": any;
   "headers": Record<HSFSHeaders, any>;
   "adapter": any;
-  "setMethod": (method: HSFSMethods) => HSFS;
-  "setAdapter": (adapter: any) => HSFS;
-  "setData": (data: any) => HSFS;
-  "addHeader": (headerName: HSFSHeaders, headerValue: any) => HSFS;
-  "addHeaders": (...args: (Record<HSFSHeaders, any> | String)[]) => HSFS;
-  "deleteHeader": (headerName: HSFSHeaders) => HSFS;
-  "deleteHeaders": (...args: (HSFSHeaders | HSFSHeaders[])[]) => HSFS;
-  "useFormData": () => HSFS;
+  "setMethod": (method: HSFSMethods) => HSFSRequest;
+  "setAdapter": (adapter: any) => HSFSRequest;
+  "setData": (data: any) => HSFSRequest;
+  "addHeader": (headerName: HSFSHeaders, headerValue: any) => HSFSRequest;
+  "addHeaders": (...args: (Record<HSFSHeaders, any> | String)[]) => HSFSRequest;
+  "deleteHeader": (headerName: HSFSHeaders) => HSFSRequest;
+  "deleteHeaders": (...args: (HSFSHeaders | HSFSHeaders[])[]) => HSFSRequest;
+  "useFormData": () => HSFSRequest;
   "finalize": () => Promise<HSFSResponse>;
 }
 
-declare function hsfs(url: string): HSFS;
-
 declare namespace hsfs {
   export const version: string;
+  export function request(url: string): HSFSRequest;
+  // export function createServer(): HSFSServer;
 }
 
+export default hsfs;
 export = hsfs;

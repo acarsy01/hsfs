@@ -30,7 +30,7 @@ module.exports = ({
     _headers["Content-Length"] = _data.length;
   }
 
-  return new Promise((_resolve) => {
+  return new Promise((resolve) => {
     let req = clientSession.request(Object.assign({
       ":method": method,
       ":path": `/${url.split("/").slice(3).join("/")}`,
@@ -46,7 +46,7 @@ module.exports = ({
       req.on("end", () => {
         clientSession.close();
 
-        _resolve({
+        resolve({
           body
         });
       });

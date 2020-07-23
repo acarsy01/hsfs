@@ -41,4 +41,4 @@ To learn to use, you can visit [Guide page on Wiki](https://github.com/acarsy01/
   </tr>
 </table>
 
-If you want to help, you can open a [issue](https://github.com/acarsy01/hsfs/issues/new).
+If you want to help to improve hsfs, you can open a [issue](https://github.com/acarsy01/hsfs/issues/new) for any question or bug.

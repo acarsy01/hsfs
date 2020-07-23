@@ -5,7 +5,6 @@
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "scripts": {
-    "test": "npm run test:javascript && npm run test:typescript",
     "build": "npm run build:unmin && npm run build:min",
     "build:unmin": "webpack --config webpack.config.js",
     "build:min": "webpack --config webpack.config.js -m"
@@ -15,16 +14,19 @@
     "url": "git://github.com/acarsy01/hsfs.git"
   },
   "keywords": [
-    "http",
     "hsfs",
+    "http",
     "https",
-    "fetch",
     "http2",
+    "fetch",
     "xmlhttprequest"
   ],
   "author": {
     "name": "acarsy01"
   },
+  "contributors": [{
+    "name": "ceyrex20"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/acarsy01/hsfs/issues"
@@ -38,8 +40,6 @@
     "babel-loader": "^8.1.0",
     "path": "^0.12.7",
     "terser-webpack-plugin": "^3.0.6",
-    "ts-node": "^8.10.2",
-    "typescript": "^3.9.6",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   }

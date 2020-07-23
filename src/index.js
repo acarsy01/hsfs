@@ -20,7 +20,7 @@
 
 const FormDataModule = ((typeof require !== "undefined") ? require("form-data") : FormData);
 
-class HSFSConstructor {
+class HSFSRequest {
   /**
    * @constructor
    * @param {string} url
@@ -58,10 +58,10 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#setMethod
-   * @description Sets method for HSFS request
-   * @param {HSFSMethods} method
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#setMethod
+   * @description Sets method for request.
+   * @param {HSFSMethods} method HTTP method to use creating request.
+   * @returns {HSFSRequest}
    */
   setMethod(method) {
     if (typeof method === "undefined") {
@@ -76,10 +76,10 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#setAdapter
-   * @description Sets adapter for HSFS request
-   * @param {any} adapter
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#setAdapter
+   * @description Sets adapter for request.
+   * @param {any} adapter Adapter module, you must see [Guide page on GitHub]{@link https://github.com/acarsy01/hsfs/wiki/Guide#adapters} for list.
+   * @returns {HSFSRequest}
    */
   setAdapter(adapter) {
     this.adapter = adapter;
@@ -88,10 +88,10 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#setData
-   * @description Sets data to send URL with HSFS request
-   * @param {any} data
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#setData
+   * @description Sets data to send with request.
+   * @param {any} data Data you want to send with request.
+   * @returns {HSFSRequest}
    */
   setData(data) {
     if (!(["POST", "PUT", "MATCH"]).includes(this.method)) {
@@ -104,11 +104,11 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#addHeader
-   * @description Adds a header
-   * @param {HSFSHeaders} headerName
-   * @param {any} headerValue
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#addHeader
+   * @description Adds a header.
+   * @param {HSFSHeaders} headerName Header name you want to add in request.
+   * @param {any} headerValue Header value you want to add in request.
+   * @returns {HSFSRequest}
    */
   addHeader(headerName, headerValue) {
     this.headers[`${headerName}`] = headerValue;
@@ -117,10 +117,10 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#addHeaders
-   * @description Adds headers in one function
-   * @param {...(Object<HSFSHeaders, any>|string)} args
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#addHeaders
+   * @description Adds headers in one function.
+   * @param {...(Object<HSFSHeaders, any>|string)} args Header name and value, or header object you want to add in request.
+   * @returns {HSFSRequest}
    */
   addHeaders(...args) {
     let isString = false;
@@ -142,10 +142,10 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#deleteHeader
-   * @description Deletes a header
-   * @param {HSFSHeaders} headerName
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#deleteHeader
+   * @description Deletes a header.
+   * @param {HSFSHeaders} headerName Header name you want to delete in request.
+   * @returns {HSFSRequest}
    */
   deleteHeader(headerName) {
     delete this.headers[`${headerName}`];
@@ -154,10 +154,10 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#deleteHeaders
-   * @description Deletes headers
-   * @param {...(HSFSHeaders|HSFSHeaders[])} headerName
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#deleteHeaders
+   * @description Deletes headers in request.
+   * @param {...(HSFSHeaders|HSFSHeaders[])} headerName Header name or headers array you want to delete in request.
+   * @returns {HSFSRequest}
    */
   deleteHeaders(...args) {
     for (let el of ([...args])) {
@@ -174,9 +174,9 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#useFormData
-   * @description Use form data in data (requires "form-data" dependency in node, use it after setData)
-   * @returns {HSFSConstructor}
+   * @method HSFSRequest#useFormData
+   * @description Uses form data in data (requires "form-data" dependency in node, use it after setData)
+   * @returns {HSFSRequest}
    */
   useFormData() {
     if (Buffer.isBuffer(this.data) || (typeof this.data !== "object")) {
@@ -195,8 +195,8 @@ class HSFSConstructor {
   }
 
   /**
-   * @method HSFSConstructor#finalize
-   * @description Finalizes HSFS request
+   * @method HSFSRequest#finalize
+   * @description Finalizes hsfs's request.
    * @returns {Promise<HSFSResponse>}
    */
   async finalize() {
@@ -219,21 +219,48 @@ class HSFSConstructor {
 
 
 /**
- * @method hsfs
- * @description HSFS function
+ * @method request
+ * @description Requests any website using hsfs.
  * @param {string} url
- * @returns {HSFSConstructor}
+ * @returns {HSFSRequest}
  */
-function hsfs(url) {
-  return new HSFSConstructor(url);
+function request(url) {
+  return new HSFSRequest(url);
 }
 
 /**
- * @description HSFS version
+ * @method createServer
+ * @description Creates a server in node process using hsfs.
+ * @returns {HSFSServer}
+ */
+/*function createServer() {
+  return new HSFSServer();
+}*/
+
+/**
+ * @description Version of hsfs
  * @type {String}
  */
-hsfs.version = ((typeof require !== "undefined") ? require("../package.json").version : "browser");
-hsfs.default = hsfs;
+const version = ((typeof require !== "undefined") ? require("../package.json").version : "browser");
 
-exports = hsfs;
-module.exports = hsfs;
+exports = {
+  request,
+  // createServer,
+  version
+};
+exports.default = {
+  request,
+  // createServer,
+  version
+};
+
+module.exports = {
+  request,
+  // createServer,
+  version
+};
+module.exports.default = {
+  request,
+  // createServer,
+  version
+};

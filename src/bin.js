@@ -9,8 +9,8 @@
   const _args = minimist(args);
   const hsfs = require("./index");
   const adapters = {
-    "HTTPAdapter": require("../adapters/HTTPAdapter"),
-    "HTTP2Adapter": require("../adapters/HTTP2Adapter")
+    "HTTPAdapter": require("../requestAdapters/HTTPAdapter"),
+    "HTTP2Adapter": require("../requestAdapters/HTTP2Adapter")
   };
 
   if (!_args.hasOwnProperty("url")) {
@@ -21,7 +21,7 @@
     throw new TypeError("\"adapter\" argument must be available.");
   }
 
-  let request = hsfs(_args.url).setAdapter(adapters[_args.adapter]);
+  let request = hsfs.request(_args.url).setAdapter(adapters[_args.adapter]);
 
   if (_args.hasOwnProperty("method")) {
     request = request.setMethod(_args.method);
