@@ -1,16 +1,14 @@
 #!/usr/bin/env node
 
 (async () => {
-  // https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e
-
   const [, , ...args] = process.argv;
   const minimist = require("minimist");
   const util = require("util");
   const _args = minimist(args);
   const hsfs = require("./index");
   const adapters = {
-    "HTTPAdapter": require("../requestAdapters/HTTPAdapter"),
-    "HTTP2Adapter": require("../requestAdapters/HTTP2Adapter")
+    "HTTPAdapter": require("../adapters/HTTPAdapter"),
+    "HTTP2Adapter": require("../adapters/HTTP2Adapter")
   };
 
   if (!_args.hasOwnProperty("url")) {

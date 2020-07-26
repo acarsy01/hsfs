@@ -1,5 +1,5 @@
 type HSFSMethods = ("GET" | "POST" | "PUT" | "PATCH" | "DELETE" | "HEAD");
-type HSFSHeaders = "Authorization" | "Content-Type";
+type HSFSHeaders = ("Authorization" | "Content-Type" | "Content-Length" | "Accept" | "User-Agent");
 
 interface HSFSResponse {
   "body": string;
@@ -19,14 +19,13 @@ interface HSFSRequest {
   "addHeaders": (...args: (Record<HSFSHeaders, any> | String)[]) => HSFSRequest;
   "deleteHeader": (headerName: HSFSHeaders) => HSFSRequest;
   "deleteHeaders": (...args: (HSFSHeaders | HSFSHeaders[])[]) => HSFSRequest;
-  "useFormData": () => HSFSRequest;
+  "useFormData": (FormDataModule: any) => HSFSRequest;
   "finalize": () => Promise<HSFSResponse>;
 }
 
 declare namespace hsfs {
   export const version: string;
   export function request(url: string): HSFSRequest;
-  // export function createServer(): HSFSServer;
 }
 
 export default hsfs;

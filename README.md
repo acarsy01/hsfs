@@ -1,7 +1,7 @@
 # HSFS
 
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
-[![Downloads](https://img.shields.io/npm/dt/hsfs?style=flat-square)](https://www.npmjs.com/hsfs)
+[![Downloads](https://img.shields.io/npm/dt/hsfs?style=flat-square)](https://www.npmjs.com/package/hsfs)
 [![Latest release](https://img.shields.io/github/v/release/acarsy01/hsfs?label=latest%20release&style=flat-square)](https://github.com/acarsy01/hsfs/releases)
 [![Stargazers](https://img.shields.io/github/stars/acarsy01/hsfs?style=flat-square)](https://github.com/acarsy01/hsfs/stargazers)
 [![Codacy Badge](https://img.shields.io/codacy/grade/7316812c7f5e411eba728b737220ffdd?style=flat-square)](https://www.codacy.com/manual/acarsy01/hsfs?utm_source=github.com&utm_medium=referral&utm_content=acarsy01/hsfs&utm_campaign=Badge_Grade)

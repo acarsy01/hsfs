@@ -18,8 +18,6 @@
  * @description HSFS constructor
  */
 
-const FormDataModule = ((typeof require !== "undefined") ? require("form-data") : FormData);
-
 class HSFSRequest {
   /**
    * @constructor
@@ -46,7 +44,7 @@ class HSFSRequest {
 
     /**
      * @description HSFS headers to send with HSFS request
-     * @type {Object<HSFSHeaders, any>}
+     * @type {Object.<HSFSHeaders, any>}
      */
     this.headers = {};
 
@@ -176,9 +174,10 @@ class HSFSRequest {
   /**
    * @method HSFSRequest#useFormData
    * @description Uses form data in data (requires "form-data" dependency in node, use it after setData)
+   * @param {any} FormDataModule Form data module which will use.
    * @returns {HSFSRequest}
    */
-  useFormData() {
+  useFormData(FormDataModule) {
     if (Buffer.isBuffer(this.data) || (typeof this.data !== "object")) {
       throw new TypeError("\"data\" property must be Object.");
     }
@@ -188,6 +187,8 @@ class HSFSRequest {
     for (let header of Object.keys(this.data)) {
       form.append(header, this.data[`${header}`]);
     }
+
+    this.addHeader("Content-Type", "x-www-form-urlencoded");
 
     this.data = form;
 
@@ -229,15 +230,6 @@ function request(url) {
 }
 
 /**
- * @method createServer
- * @description Creates a server in node process using hsfs.
- * @returns {HSFSServer}
- */
-/*function createServer() {
-  return new HSFSServer();
-}*/
-
-/**
  * @description Version of hsfs
  * @type {String}
  */
@@ -245,22 +237,18 @@ const version = ((typeof require !== "undefined") ? require("../package.json").v
 
 exports = {
   request,
-  // createServer,
   version
 };
 exports.default = {
   request,
-  // createServer,
   version
 };
 
 module.exports = {
   request,
-  // createServer,
   version
 };
 module.exports.default = {
   request,
-  // createServer,
   version
 };
